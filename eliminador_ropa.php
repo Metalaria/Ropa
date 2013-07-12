@@ -12,7 +12,7 @@ if(empty($_REQUEST["borrar_prenda"])){
 }
 
 if(isset($_REQUEST["borrar_usuario"])) {
-    $q_borrar = "delete from usuarios where id_user in ('" . implode("','", $_POST['borrar_usuario']) . "')";
+    $q_borrar = "delete from prendas where id_prendas in ('" . implode("','", $_POST['borrar_prenda']) . "')";
     mysqli_query($con, $q_borrar)or die(mysqli_error());
     //echo "usuario borrado";
     header('refresh: 3; url= exito.php');
