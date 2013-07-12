@@ -31,7 +31,7 @@ function makestring($array){
     echo "<form action='borrar.php' method='post' enctype='multipart/form-data'>";
     while ($f =  mysqli_fetch_array($busca)){
         $prenda=makestring($f);
-        echo "Prenda: <input type='checkbox' name='borrar_usuario[]' value='$prenda' />$prenda<br/>";
+        echo "Prenda: <input type='checkbox' name='borrar_prenda[]' value='$prenda' />$prenda<br/>";
     }
     echo " <input type='submit' name='boton' value='eliminar' />";
     echo "</form>";
