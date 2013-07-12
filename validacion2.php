@@ -1,6 +1,6 @@
 <?php
 
-$con = new mysqli('localhost', 'root', 'app.Root', 'ropa');
+$con = new mysqli('localhost', 'root', '', 'ropa');
 //recibe los datos y hace la consulta
 $user = $_POST['user1'];
 
@@ -14,12 +14,14 @@ $fila = mysqli_fetch_assoc($queUser);
 $contra = $fila['id_user'];
 $tipo_user = $fila['tipo'];
 
-if ($user === $contra and $tipo_user === 1) {
-    
-    header('location:exito.php');
-} elseif ($user === $contra and $tipo_user === 1) {
-    header('location:exito.php');
-}
+if ($user === $contra)  {
+    if($tipo_user === 1){
+        header('location: exito.php');
+    }
+    if ($tipo_user === 0){
+        header ('location: cliente.php');
+    }
+} 
 else {
     echo "<br/>"."usuario  o contrase&ntilde;a incorrecta  <br/>";
     echo "Redirigiendo a la p&aacute;gina principal ...<br/>";
