@@ -21,8 +21,7 @@ if ($user === $contra)  {
     if ($tipo_user === 0){
         header ('location: cliente.php');
     }
-} 
-else {
+} else {
     echo "<br/>"."usuario  o contrase&ntilde;a incorrecta  <br/>";
     echo "Redirigiendo a la p&aacute;gina principal ...<br/>";
     header('refresh: 3; url= index.php');
