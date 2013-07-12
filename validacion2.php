@@ -12,16 +12,20 @@ $queUser = mysqli_query( $con,"select id_user, tipo from usuarios where password
 $fila = mysqli_fetch_assoc($queUser);
 
 $contra = $fila['id_user'];
+echo $contra."<br/>";
 $tipo_user = $fila['tipo'];
+echo $tipo_user;
 
-if ($user === $contra)  {
-    if($tipo_user === 1){
+if ($user === $contra and $tipo_user == 1 )  {
         header('location: exito.php');
+    }else{
+    echo "<br/>"."usuario  o contrase&ntilde;a incorrecta  <br/>";
+    echo "Redirigiendo a la p&aacute;gina principal ...<br/>";
+    header('refresh: 3; url= index.php');
     }
-    if ($tipo_user === 0){
-        header ('location: cliente.php');
-    }
-} else {
+   if ($user === $contra and $tipo_user == 0){
+       header ('location: cliente.php');
+    } else {
     echo "<br/>"."usuario  o contrase&ntilde;a incorrecta  <br/>";
     echo "Redirigiendo a la p&aacute;gina principal ...<br/>";
     header('refresh: 3; url= index.php');
