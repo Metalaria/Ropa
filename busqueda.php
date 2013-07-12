@@ -1,4 +1,6 @@
 <?php
+
+use mysqli;
 session_start();
 if (!isset($_SESSION['id_user'])) {
             echo "No ha iniciado sesi&oacute;n";
