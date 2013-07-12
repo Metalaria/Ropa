@@ -6,13 +6,13 @@ if (!isset($_SESSION['id_user'])) {
             header("refresh: 3; url= index.php");   
         } else{
 
-$con = new mysqli('localhost', 'root', 'app.Root', 'prueba');
+$con = new mysqli('localhost', 'root', '', 'ropa');
 $busca = mysqli_query($con, "select id_user, descripcion from usuarios ");
     
     while ($f =  mysqli_fetch_array($busca)){
         echo $f ['id_user']. '&nbsp;'. '&nbsp;'.$f['descripcion']."<br/>" ; 
     }
-    echo "<form name= 'form1' action='atras.php' method='POST' >
+    echo "<form name= 'form1' action='atras_cliente.php' method='POST' >
             <input type='submit' name='regresar' value='regresar' />
         </form>";
         }
