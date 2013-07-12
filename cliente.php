@@ -7,7 +7,7 @@ session_start();
         } else{
             echo "<p><a href='registrar.php'>a&ntilde;adir una prenda</a></p>
                 <p><a href='buscar.php'>Modificar una prenda</a></p>
-                <p><a href='eliminar.php'>Buscar una prenda</a></p>
+                <p><a href='buscador_ropa.php'>Buscar una prenda</a></p>
                 <p><a href='eliminar.php'>Eliminar una prenda</a></p>
                 <form name= 'form1' action='desconexion.php' method='POST' >
                     <input type='submit' name='salir' value='salir' />

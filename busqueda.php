@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_user'])) {
             header("refresh: 3; url= index.php");   
         } else{
 
-$con = new mysqli('localhost', 'root', 'app.Root', 'prueba');
+$con = new mysqli('localhost', 'root', '', 'ropa');
 
 $busqueda=$_POST['busqueda'] ;
 
