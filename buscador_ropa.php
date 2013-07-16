@@ -6,8 +6,12 @@ session_start();
             echo "No ha iniciado sesi&oacute;n";
             header("refresh: 3; url= index.php");   
         }else {
-        echo "<form action='busqueda.php' method='post' enctype='multipart/form-data'>
+        echo "<form action='buscar_ropa.php' method='post' enctype='multipart/form-data'>
                 Id de la prenda:<input type='text' name='busqueda' value='' /><br/>
+                <input type='submit' name='boton' value='buscar' />
+        </form>";
+        
+        echo "<form action='buscar_ropa_tipo.php' method='post' enctype='multipart/form-data'>
                 Tipo de prenda:<input type='text' name='busqueda' value='' /><br/>
                 <input type='submit' name='boton' value='buscar' />
         </form>";
