@@ -16,7 +16,7 @@ $busqueda=$_POST['busqueda'] ;
 
 if ($busqueda!=""){
    
-    $busca = mysqli_query($con, " SELECT pren_tipo, descripcion FROM prendas WHERE
+    $busca = mysqli_query($con, " SELECT pren_tipo FROM prendas WHERE
         pren_tipo LIKE '%$busqueda%'"); 
     while ($f =  mysqli_fetch_array($busca)){
         echo $f ['id_user']. '&nbsp;'. '&nbsp;'.$f['descripcion']."<br/>" ; 
