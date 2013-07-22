@@ -1,6 +1,7 @@
 <?php
 $con = new mysqli('localhost', 'root', '', 'ropa');
 $path = 'fotos';
+$cod = $_POST['cod'];
 if(isset($_POST['boton'])){
 	// Hacemos una condicion en la que solo permitiremos que se suban imagenes
 	if ((($_FILES["archivo"]["type"] == "image/gif") || 
@@ -29,7 +30,9 @@ if(isset($_POST['boton'])){
 	  	  echo "Archivo Subido <br />";
                   $nombre_foto = $_FILES["archivo"]["name"];
                   $ruta = $path."/" . $_FILES["archivo"]["name"];
-                  mysqli_query($con,"insert into prendas (pren_img_url, pren_img_nombre) values ('$ruta','$nombre_foto' )")  ;
+                  mysqli_query($con,"UPDATE prendas SET
+                      pren_img_url = '$ruta', pren_img_nombre = '$nombre_foto'
+                    WHERE pren_codigo = $cod )")  ;
                   
 	  	}
 	  }

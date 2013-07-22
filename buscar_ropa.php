@@ -1,6 +1,6 @@
 <?php
 
-use mysqli;
+
 session_start();
 if (!isset($_SESSION['id_user'])) {
             echo "No ha iniciado sesi&oacute;n";
@@ -16,10 +16,11 @@ $busqueda=$_POST['busqueda'] ;
 
 if ($busqueda!=""){
    
-    $busca = mysqli_query($con, " SELECT id_prendas, descripcion FROM prendas WHERE
-        id_prendas LIKE '%$busqueda%'"); 
+    $busca = mysqli_query($con, " SELECT id_prendas, pren_usuario, pren_tipo FROM prendas WHERE
+        pren_codigo LIKE '%$busqueda%'"); 
     while ($f =  mysqli_fetch_array($busca)){
-        echo $f ['id_user']. '&nbsp;'. '&nbsp;'.$f['descripcion']."<br/>" ; 
+        echo $f ['id_prendas']. '&nbsp;'. '&nbsp;'.$f['pren_usuario']
+                . '&nbsp;'. '&nbsp;'.$f['pren_tipo']."<br/>" ; 
     }
     echo "<form name= 'form1' action='atras.php' method='POST' >
             <input type='submit' name='regresar' value='regresar' />
@@ -29,7 +30,7 @@ if ($busqueda!=""){
 
 if (empty($_POST['busqueda'])) {
      echo "No ha itroducido nada para buscar";
-    header('refresh: 3; url= buscar.php');
+    header('refresh: 3; url= buscador_ropa.php');
 } 
 }      
 ?>

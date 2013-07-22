@@ -16,24 +16,28 @@
        echo" <div>
             <form name= 'form1' action='insertar_ropa.php' method='POST' >
             c&oacute;digo de la prenda (obligatorio) <input type='textarea' name='cod' value='' /><br/>
-            Tipo de prenda (obligatorio) <input type='textarea' name='tipo' value='' /><br/>
-            <input type='file' name='img' /> Sube una im&aacute;gen:
-            
+            Tipo de prenda (obligatorio) <input type='textarea' name='tipo' value='' /><br/>   
             <input type='submit' name='guardar' value='guardar' /><br/>
             </form>
-        </div>
-        <a href='cliente.php'>volver atr&aacute;s</a> ";
+        </div> ";
         
-            
-        /*echo "<div>
+        
+       echo "<a href='registrar_ropa.php?opc=1'>¿Desea subir una imagen?</a><br/>";
+       
+       if (isset($_GET['opc']) and ($_GET['opc']==1)){   
+        echo "<div>
             <form action='subida2.php' method='post' enctype='multipart/form-data'>
+            c&oacute;digo de la prenda <input type='textarea' name='cod' value='' /><br/>
             <label for='file'>Sube una im&aacute;gen:</label>
             <input type='file' name='archivo' id='archivo' /> 
             <input type='submit' name='boton' value='Subir' />
         </form>
-        </div> */
-        
+        </div>";
         }
+        }
+        echo "<a href='cliente.php'>volver atr&aacute;s</a> ";
                 ?>
+        
+        
     </body>
 </html>
