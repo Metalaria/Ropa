@@ -14,7 +14,7 @@
         }else {
        
        echo" <div>
-            <form name= 'form1' action='registrar_usuario.php' method='POST' >
+            <form name= 'form1' action='insertar_ropa.php' method='POST' >
 		c&oacute;digo de la prenda (obligatorio) <input type='password' name='pass' value='' /><br/>
 		Tipo de prenda (obligatorio) <input type='textarea' name='info' value='' /><br/>
 		<input type='submit' name='guardar' value='guardar' /><br/>
@@ -22,9 +22,9 @@
         </div>" ;
         echo "<div>
             <form action='subida2.php' method='post' enctype='multipart/form-data'>
-            <label for='file>Sube una im&aacute;gen:</label>
+            <label for='file'>Sube una im&aacute;gen:</label>
             <input type='file' name='archivo' id='archivo' /> 
-            <input type='submit' name='boton' value='Subir imagen' />
+            <input type='submit' name='boton' value='Subir' />
         </form>
         </div>
         <a href='cliente.php'>volver atr&aacute;s</a> ";
