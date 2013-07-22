@@ -4,30 +4,51 @@ session_start();
 if (!isset($_SESSION['id_user'])) {
     echo "No ha iniciado sesi&oacute;n";
     header("refresh: 3; url= index.php");   
-}else {
-$con = new mysqli('localhost', 'root', '', 'ropa');
-
-if(empty($_REQUEST["borrar_prenda"])){
-    echo "No ha introducido ning&uacute;n usuario"."<br/>";
+} else {
+    $con = new mysqli('localhost', 'root', '', 'ropa');
+$busqueda =""; 
+$busqueda=$_POST['busqueda'] ;
+$all="";
+//$all =$_POST['todos'] ;
+//$all =$_POST['borrar_todos'] ;
+// funcion para convertir el contenido de un array en un string
+function makestring($array)
+  {
+  $outval = '';
+  if (is_array($array)) {
+   foreach($array as $key=>$value)
+    {
+    if(is_array($value))
+      {
+      $outval = makestring($value);
+      }
+    else
+      {
+      $outval = $value;
+      }
+    }
 }
+  
+  return $outval;
+  }
 
-if(isset($_REQUEST["borrar_usuario"])) {
-    $q_borrar = "delete from prendas where id_prendas in ('" . implode("','", $_POST['borrar_prenda']) . "')";
-    mysqli_query($con, $q_borrar)or die(mysqli_error());
-    //echo "usuario borrado";
+if ($busqueda!=""){
+    $busca = mysqli_query($con, " SELECT id_user FROM usuarios WHERE
+        id_user LIKE '%$busqueda%'");
+    echo "<form action='borrar.php' method='post' enctype='multipart/form-data'>";
+    while ($array= mysqli_fetch_array($busca)){
+        $user=makestring($array);
+            echo"Usuario: <input type='checkbox' name='borrar_usuario[]' value='$user' />$user<br/>";
+    }
+    echo " <input type='submit' name='boton' value='eliminar' />";
+     
+   echo "</form>";
+}
+else {
+    echo "No ha itroducido nada para buscar";
     header('refresh: 3; url= exito.php');
+} 
 }
 
-}
-//$con = new mysqli('localhost', 'root', 'app.Root', 'prueba');
 
-if(empty($_REQUEST["borrar_usuario"])){
-    echo "No ha introducido ning&uacute;n usuario"."<br/>";
-}
-if(isset($_REQUEST["borrar_usuario"])) {
-    $q_borrar = "delete from usuarios where id_user in ('" . implode("','", $_POST['borrar_usuario']) . "')";
-    mysqli_query($con, $q_borrar)or die(mysqli_error());
-    //echo "usuario borrado";
-    header('refresh: 3; url= exito.php');
-}
 ?>
