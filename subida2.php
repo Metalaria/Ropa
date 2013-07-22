@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost', 'root', '', 'prueba');
+$con = new mysqli('localhost', 'root', '', 'ropa');
 $path = 'fotos';
 if(isset($_POST['boton'])){
 	// Hacemos una condicion en la que solo permitiremos que se suban imagenes
@@ -29,6 +29,7 @@ if(isset($_POST['boton'])){
 	  	  echo "Archivo Subido <br />";
                   $nombre_foto = $_FILES["archivo"]["name"];
                   $ruta = $path."/" . $_FILES["archivo"]["name"];
+                  echo "$ruta";
                   mysqli_query($con,"insert into prendas (pren_img_url, pren_img_nombre) values ('$ruta','$nombre_foto' )")  ;
                   
 	  	}
@@ -39,6 +40,6 @@ if(isset($_POST['boton'])){
 	}
 }
 ob_start();
-header('refresh: 1; url= index.php');
+//header('refresh: 1; url= index.php');
 ob_end_flush();
 ?>
