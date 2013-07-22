@@ -15,19 +15,24 @@
        
        echo" <div>
             <form name= 'form1' action='insertar_ropa.php' method='POST' >
-		c&oacute;digo de la prenda (obligatorio) <input type='password' name='pass' value='' /><br/>
-		Tipo de prenda (obligatorio) <input type='textarea' name='info' value='' /><br/>
-		<input type='submit' name='guardar' value='guardar' /><br/>
+            c&oacute;digo de la prenda (obligatorio) <input type='textarea' name='cod' value='' /><br/>
+            Tipo de prenda (obligatorio) <input type='textarea' name='tipo' value='' /><br/>
+            <input type='file' name='img' /> Sube una im&aacute;gen:
+            
+            <input type='submit' name='guardar' value='guardar' /><br/>
             </form>
-        </div>" ;
-        echo "<div>
+        </div>
+        <a href='cliente.php'>volver atr&aacute;s</a> ";
+        
+            
+        /*echo "<div>
             <form action='subida2.php' method='post' enctype='multipart/form-data'>
             <label for='file'>Sube una im&aacute;gen:</label>
             <input type='file' name='archivo' id='archivo' /> 
             <input type='submit' name='boton' value='Subir' />
         </form>
-        </div>
-        <a href='cliente.php'>volver atr&aacute;s</a> ";
+        </div> */
+        
         }
                 ?>
     </body>
