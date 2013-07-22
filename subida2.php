@@ -29,7 +29,6 @@ if(isset($_POST['boton'])){
 	  	  echo "Archivo Subido <br />";
                   $nombre_foto = $_FILES["archivo"]["name"];
                   $ruta = $path."/" . $_FILES["archivo"]["name"];
-                  echo "$ruta";
                   mysqli_query($con,"insert into prendas (pren_img_url, pren_img_nombre) values ('$ruta','$nombre_foto' )")  ;
                   
 	  	}
@@ -40,6 +39,6 @@ if(isset($_POST['boton'])){
 	}
 }
 ob_start();
-//header('refresh: 1; url= index.php');
+header('refresh: 1; url= cliente.php');
 ob_end_flush();
 ?>
