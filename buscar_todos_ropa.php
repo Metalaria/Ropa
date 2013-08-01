@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 
 $con = new mysqli('localhost', 'root', '', 'ropa');
 $busca = mysqli_query($con, "select id_prendas, pren_usuario, pren_codigo, pren_tipo
-    from usuarios ");
+    from prendas ");
     
     while ($f =  mysqli_fetch_array($busca)){
         echo $f ['id_prendas']. '&nbsp;'. '&nbsp;'.$f['pren_usuario'].
