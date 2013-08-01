@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_user'])) {
     echo "No ha iniciado sesi&oacute;n";
     header("refresh: 3; url= index.php");   
 } else {
-    $con = new mysqli('localhost', 'root', '', 'ropa');
+$con = new mysqli('localhost', 'root', '', 'ropa');
 $busqueda =""; 
 $busqueda=$_POST['busqueda'] ;
 $all="";
@@ -35,7 +35,7 @@ function makestring($array)
 if ($busqueda!=""){
     $busca = mysqli_query($con, " SELECT id_user FROM usuarios WHERE
         id_user LIKE '%$busqueda%'");
-    echo "<form action='borrar.php' method='post' enctype='multipart/form-data'>";
+    echo "<form action='modificando.php' method='post' enctype='multipart/form-data'>";
     while ($array= mysqli_fetch_array($busca)){
         $user=makestring($array);
             echo"Usuario: <input type='checkbox' name='borrar_usuario[]' value='$user' />$user<br/>";
