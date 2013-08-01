@@ -46,7 +46,7 @@ if ($busqueda!=""){
 }
 else {
     echo "No ha itroducido nada para buscar";
-    header('refresh: 3; url= exito.php');
+    header('refresh: 3; url= cliente.php');
 } 
 }
 
