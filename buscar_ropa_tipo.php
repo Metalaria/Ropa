@@ -1,6 +1,6 @@
 <?php
 
-use mysqli;
+
 session_start();
 if (!isset($_SESSION['id_user'])) {
             echo "No ha iniciado sesi&oacute;n";
@@ -16,12 +16,12 @@ $busqueda=$_POST['busqueda'] ;
 
 if ($busqueda!=""){
    
-    $busca = mysqli_query($con, " SELECT pren_tipo FROM prendas WHERE
+    $busca = mysqli_query($con, " SELECT id_prendas, pren_tipo FROM prendas WHERE
         pren_tipo LIKE '%$busqueda%'"); 
     while ($f =  mysqli_fetch_array($busca)){
-        echo $f ['id_user']. '&nbsp;'. '&nbsp;'.$f['descripcion']."<br/>" ; 
+        echo $f ['id_prendas']. '&nbsp;'. '&nbsp;'.$f['pren_tipo']."<br/>" ; 
     }
-    echo "<form name= 'form1' action='atras.php' method='POST' >
+    echo "<form name= 'form1' action='atras_cliente.php' method='POST' >
             <input type='submit' name='regresar' value='regresar' />
         </form>";
  
