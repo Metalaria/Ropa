@@ -16,7 +16,7 @@ session_start();
                 <input type='submit' name='boton' value='buscar' />
         </form>";
         
-        echo "<form action='buscar_todos.php' method='post' enctype='multipart/form-data'>
+        echo "<form action='buscar_todos_ropa.php' method='post' enctype='multipart/form-data'>
             
             <input type='submit' name='todos' value='Todas las prendas' /><br/>
             
