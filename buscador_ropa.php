@@ -23,4 +23,4 @@ session_start();
         </form>";
         }
          ?>
-        <a href='exito.php'>volver atr&aacute;s</a>
+        <a href='cliente.php'>volver atr&aacute;s</a>
