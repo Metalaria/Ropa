@@ -30,9 +30,12 @@ if(isset($_POST['boton'])){
 	  	  echo "Archivo Subido <br />";
                   $nombre_foto = $_FILES["archivo"]["name"];
                   $ruta = $path."/" . $_FILES["archivo"]["name"];
-                  mysqli_query($con,"UPDATE prendas SET
+                  echo "$ruta". "<br />";
+                  echo "$nombre_foto". "<br />";
+                  echo "$cod". "<br />";
+                  mysqli_real_query($con,"UPDATE prendas SET
                       pren_img_url = '$ruta', pren_img_nombre = '$nombre_foto'
-                    WHERE pren_codigo = $cod )")  ;
+                    WHERE pren_codigo = '$cod' ")  ;
                   
 	  	}
 	  }
@@ -42,6 +45,6 @@ if(isset($_POST['boton'])){
 	}
 }
 ob_start();
-header('refresh: 1; url= cliente.php');
+//header('refresh: 1; url= cliente.php');
 ob_end_flush();
 ?>
