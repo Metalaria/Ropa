@@ -45,6 +45,6 @@ if(isset($_POST['boton'])){
 	}
 }
 ob_start();
-//header('refresh: 1; url= cliente.php');
+header('refresh: 1; url= cliente.php');
 ob_end_flush();
 ?>
