@@ -33,14 +33,14 @@ function makestring($array)
   }
 
 if ($busqueda!=""){
-    $busca = mysqli_query($con, " SELECT id_user FROM usuarios WHERE
-        id_user LIKE '%$busqueda%'");
+    $busca = mysqli_query($con, " SELECT pren_codigo FROM prendas WHERE
+        pren_codigo LIKE '%$busqueda%'");
     echo "<form action='modificando.php' method='post' enctype='multipart/form-data'>";
     while ($array= mysqli_fetch_array($busca)){
         $user=makestring($array);
             echo"Usuario: <input type='checkbox' name='borrar_usuario[]' value='$user' />$user<br/>";
     }
-    echo " <input type='submit' name='boton' value='eliminar' />";
+    echo " <input type='submit' name='boton' value='editar' />";
      
    echo "</form>";
 }
