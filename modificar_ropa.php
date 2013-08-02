@@ -36,10 +36,13 @@ if ($busqueda!=""){
     $busca = mysqli_query($con, " SELECT pren_codigo FROM prendas WHERE
         pren_codigo LIKE '%$busqueda%'");
     echo "<form action='modificando.php' method='post' enctype='multipart/form-data'>";
-    while ($array= mysqli_fetch_array($busca)){
-        $user=makestring($array);
-            echo"Usuario: <input type='checkbox' name='borrar_usuario[]' value='$user' />$user<br/>";
-    }
+    $array= mysqli_fetch_array($busca);
+    
+    //while ($array= mysqli_fetch_array($busca)){
+        $prenda=makestring($array);
+        echo "$prenda"."<br/>";
+            echo"Prenda: <input type='checkbox' name='editar_prenda' value='$prenda' />$prenda<br/>";
+    //}
     echo " <input type='submit' name='boton' value='editar' />";
      
    echo "</form>";
@@ -48,7 +51,7 @@ else {
     echo "No ha itroducido nada para buscar";
     header('refresh: 3; url= cliente.php');
 } 
-}
+} 
 
 
 ?>

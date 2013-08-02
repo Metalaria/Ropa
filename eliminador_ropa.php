@@ -8,26 +8,15 @@ if (!isset($_SESSION['id_user'])) {
 $con = new mysqli('localhost', 'root', '', 'ropa');
 
 if(empty($_REQUEST["borrar_prenda"])){
-    echo "No ha introducido ning&uacute;n usuario"."<br/>";
+    echo "No ha seleccionado ninguna prenda"."<br/>";
 }
-
-if(isset($_REQUEST["borrar_usuario"])) {
+print_r($_REQUEST['borrar_prenda']);
+if(isset($_REQUEST['borrar_prenda'])) {
     $q_borrar = "delete from prendas where id_prendas in ('" . implode("','", $_POST['borrar_prenda']) . "')";
     mysqli_query($con, $q_borrar)or die(mysqli_error());
-    //echo "usuario borrado";
-    header('refresh: 3; url= exito.php');
+    echo "prenda borrada";
+    header('refresh: 3; url= cliente.php');
 }
 
-}
-//$con = new mysqli('localhost', 'root', 'app.Root', 'prueba');
-
-if(empty($_REQUEST["borrar_usuario"])){
-    echo "No ha introducido ning&uacute;n usuario"."<br/>";
-}
-if(isset($_REQUEST["borrar_usuario"])) {
-    $q_borrar = "delete from usuarios where id_user in ('" . implode("','", $_POST['borrar_usuario']) . "')";
-    mysqli_query($con, $q_borrar)or die(mysqli_error());
-    //echo "usuario borrado";
-    header('refresh: 3; url= exito.php');
 }
 ?>

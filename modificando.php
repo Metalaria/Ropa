@@ -1,7 +1,7 @@
 <?php
 $con = new mysqli('localhost', 'root', '', 'ropa');
 
-$prenda = $_POST['borrar_usuario[]'];
+$prenda = $_POST['editar_prenda'];
 
 echo "<form action='modificando.php' method='post' enctype='multipart/form-data'>
                 Usuario de la prenda:<input type='text' name='user' value='' /><br/>
@@ -14,5 +14,8 @@ $tipo = $_POST['tipo'];
 
 $query = "update prendas set pren_usuario = '$user', pren_tipo = '$tipo'
     where id_prendas = '$prenda' ";
-mysqli_query($con, $query)
+mysqli_query($con, $query);
+        
+echo "Prenda modificada";
+header('refresh: 3; url= cliente.php');
 ?>

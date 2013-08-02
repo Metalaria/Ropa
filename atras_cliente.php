@@ -1,3 +1,3 @@
 <?php
-    header('location: buscar.php');
+    header('location: cliente.php');
 ?>

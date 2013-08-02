@@ -26,9 +26,8 @@ function makestring($array){
   return $outval;
   }
 
-    $busca = mysqli_query($con, " SELECT id_prendas, pren_usuario, pren_tipo FROM prendas WHERE
-        pren_codigo LIKE '%$busqueda%'");
-    echo "<form action='modificar_ropa.php' method='post' enctype='multipart/form-data'>";
+    $busca = mysqli_query($con, " SELECT id_prendas FROM prendas");
+    echo "<form action='eliminador_ropa.php' method='post' enctype='multipart/form-data'>";
     while ($f =  mysqli_fetch_array($busca)){
         $prenda=makestring($f);
         echo "Prenda: <input type='checkbox' name='borrar_prenda[]' value='$prenda' />$prenda<br/>";

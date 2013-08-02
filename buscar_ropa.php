@@ -22,7 +22,7 @@ if ($busqueda!=""){
         echo $f ['id_prendas']. '&nbsp;'. '&nbsp;'.$f['pren_usuario']
                 . '&nbsp;'. '&nbsp;'.$f['pren_tipo']."<br/>" ; 
     }
-    echo "<form name= 'form1' action='atras.php' method='POST' >
+    echo "<form name= 'form1' action='atras_cliente.php' method='POST' >
             <input type='submit' name='regresar' value='regresar' />
         </form>";
  
